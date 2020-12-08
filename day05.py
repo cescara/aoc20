@@ -1,3 +1,6 @@
+from util import get_filename
+
+
 def search(lower, upper, chars):
     if len(chars) == 0:
         return lower
@@ -26,8 +29,13 @@ def get_missing_seat(data):
     return all_seats.difference(seats).pop()
 
 
-with open("input/day05.txt") as file:
-    inp = [line.strip() for line in file]
+def main():
+    with open(get_filename()) as file:
+        inp = [line.strip() for line in file]
 
-print(max(get_seats(inp)))
-print(get_missing_seat(inp))
+    print(max(get_seats(inp)))
+    print(get_missing_seat(inp))
+
+
+if __name__ == '__main__':
+    main()

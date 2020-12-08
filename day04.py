@@ -1,8 +1,10 @@
 import re
 
+from util import get_filename
+
 required = {"ecl", "eyr", "hcl", "pid", "iyr", "byr", "hgt"}
 hgt_pattern = re.compile(r"(?P<num>\d{2,3})(?P<unit>cm|in)")
-hcl_pattern = re.compile(r"#[a-z0-9]{6}")
+hcl_pattern = re.compile(r"#[a-f0-9]{6}")
 pid_pattern = re.compile(r"\d{9}")
 eyecolors = {"amb", "blu", "brn", "gry", "grn", "hzl", "oth"}
 
@@ -60,7 +62,7 @@ def part2(passports):
     return valid
 
 
-with open("input/day04.txt") as file:
+with open(get_filename()) as file:
     inp = [line.strip() for line in file]
 
 print(part1(parse(inp)))

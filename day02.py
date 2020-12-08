@@ -1,5 +1,7 @@
 import re
 
+from util import get_filename
+
 pattern = re.compile(r"(?P<first>\d+)-(?P<second>\d+) (?P<pattern>[a-z]): (?P<password>\w+)")
 
 
@@ -27,7 +29,12 @@ def part2(data):
     return valid
 
 
-with open("input/day02.txt") as file:
-    inp = [parse((pattern.match(line))) for line in file]
-print(part1(inp))
-print(part2(inp))
+def main():
+    with open(get_filename()) as file:
+        inp = [parse((pattern.match(line))) for line in file]
+    print(part1(inp))
+    print(part2(inp))
+
+
+if __name__ == '__main__':
+    main()

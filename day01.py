@@ -1,3 +1,6 @@
+from util import get_filename
+
+
 def compare2(data):
     for i in range(len(data)):
         for j in range(i + 1, len(data)):
@@ -13,7 +16,12 @@ def compare3(data):
                     return data[i] * data[j] * data[k]
 
 
-with open("input/day01.txt") as file:
-    inp = [int(line.strip()) for line in file]
-print(compare2(inp))
-print(compare3(inp))
+def main():
+    with open(get_filename()) as file:
+        inp = [int(line.strip()) for line in file]
+    print(compare2(inp))
+    print(compare3(inp))
+
+
+if __name__ == '__main__':
+    main()

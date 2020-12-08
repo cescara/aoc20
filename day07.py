@@ -1,5 +1,7 @@
-import typing as tp
 import re
+import typing as tp
+
+from util import get_filename
 
 parent_pattern = re.compile(r"(?P<parent>.+) bags contain (?P<contents>.+)")
 child_pattern = re.compile(r"(?P<amount>\d+) (?P<colors>.+?) bags?")
@@ -61,8 +63,13 @@ def part2(bag_name, bags):
     return sum(get_child_amounts(bags[bag_name]))
 
 
-with open("input/day07.txt") as file:
-    inp = [line.strip() for line in file]
+def main():
+    with open(get_filename()) as file:
+        inp = [line.strip() for line in file]
 
-print(part1("shiny gold", parse(inp)))
-print(part2("shiny gold", parse(inp)))
+    print(part1("shiny gold", parse(inp)))
+    print(part2("shiny gold", parse(inp)))
+
+
+if __name__ == '__main__':
+    main()

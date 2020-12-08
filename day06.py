@@ -1,3 +1,6 @@
+from util import get_filename
+
+
 def parse(groups, operation):
     answers = []
     for group in groups:
@@ -6,8 +9,13 @@ def parse(groups, operation):
     return sum([len(answer) for answer in answers])
 
 
-with open("input/day06.txt") as file:
-    inp = [group.splitlines() for group in file.read().split("\n\n")]
+def main():
+    with open(get_filename()) as file:
+        inp = [group.splitlines() for group in file.read().split("\n\n")]
 
-print(parse(inp, set.union))
-print(parse(inp, set.intersection))
+    print(parse(inp, set.union))
+    print(parse(inp, set.intersection))
+
+
+if __name__ == '__main__':
+    main()

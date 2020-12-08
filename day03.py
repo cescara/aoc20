@@ -1,3 +1,6 @@
+from util import get_filename
+
+
 def slide(data, x_step, y_step):
     trees = 0
     x = 0
@@ -13,8 +16,13 @@ def slide(data, x_step, y_step):
     return trees
 
 
-with open("input/day03.txt") as file:
-    inp = [line.strip() for line in file]
+def main():
+    with open(get_filename()) as file:
+        inp = [line.strip() for line in file]
 
-print(slide(inp, 3, 1))
-print(slide(inp, 1, 1) * slide(inp, 3, 1) * slide(inp, 5, 1) * slide(inp, 7, 1) * slide(inp, 1, 2))
+    print(slide(inp, 3, 1))
+    print(slide(inp, 1, 1) * slide(inp, 3, 1) * slide(inp, 5, 1) * slide(inp, 7, 1) * slide(inp, 1, 2))
+
+
+if __name__ == '__main__':
+    main()
